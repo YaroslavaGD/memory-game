@@ -1,0 +1,105 @@
+@import "variables.css";
+
+
+body {
+  background-color: var(--body-bg);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 0fr);
+  gap: .25rem;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.card {
+  min-width: 15dvh;
+  height: auto;
+  background-color: var(--body-bg);
+  color: var(--card-text);
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  font-size: 2rem;
+  transition: background-color ease-in var(--anim-duration);
+  perspective: 1000px;
+  transition: transform .5s, filter 1s ease-in;
+
+}
+
+.card:hover {
+  background-color: var(--card-bg--hover2);
+}
+
+.card__content {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  transform-style: preserve-3d;
+  transition: transform .3s;
+}
+
+.card--flipped {
+  pointer-events: none;
+}
+
+.card--flipped .card__content {
+  transform: rotateY(180deg);
+}
+
+.card__content::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+  background-color: var(--card-bg-cover);
+  transition: background-color ease-in var(--anim-duration);
+}
+
+.card__content:hover:before {
+  background-color: var(--card-background-cover--hover);
+}
+
+.card__img {
+  -webkit-user-drag: none;
+  position: relative;
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid var(--border-color);
+  overflow: hidden;
+}
+
+.card__img--front {
+  background-color: var(--card-bg);
+  transform: rotateY(180deg);
+}
+
+.card__img--back {
+  transform: rotateY(0deg);
+}
+
+.card__img--back {
+  position: absolute;
+  display: block;
+  backface-visibility: hidden;
+  --webkit-backface-visibility: hidden;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  inset: 0;
+}
