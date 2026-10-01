@@ -1,6 +1,6 @@
 const CARD_CLASSES = {
   CARD: 'card',
-  CARD_FLIPPED: 'card--flipped',
+  CARD_OPEN: 'card--open',
   CONTENT: 'card__content',
   IMG: 'card__img',
   IMG_FRONT: 'card__img--front',
@@ -14,7 +14,7 @@ const IMG_FORMAT = 'png';
 function createCard() {
   function init(index) {
     const cardElement = document.createElement('button');
-    cardElement.classList.add(CARD_CLASSES.CARD, CARD_CLASSES.CARD_FLIPPED);
+    cardElement.classList.add(CARD_CLASSES.CARD, CARD_CLASSES.CARD_OPEN);
     cardElement.type = 'button';
 
     cardElement.appendChild(renderContent(index));

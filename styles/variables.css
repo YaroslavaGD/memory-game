@@ -2,10 +2,10 @@
   --body-bg: #554b53;
   --card-bg: #b8a8b5;
   --card-bg--hover2: #e3cfdf;
-  --card-bg-cover: rgb(158, 155, 133, 0.26);
+  --card-bg-cover: rgb(158 155 133 / 0.26);
   --card-bg-cover--hover: rgb(158, 155, 133, 0.05);
-  --card-bg-hover: #7e6e8d;
-  --card-bg-end: #9e9b85;
+  /* --card-bg-hover: #7e6e8d; */
+  /* --card-bg-end: #9e9b85; */
   --card-text: #dde3c5;
   --border-color: #372b35;
 
