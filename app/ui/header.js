@@ -1,19 +1,29 @@
 const HEADER_CLASSES = {
-  HEADER: 'header'
+  HEADER: 'header',
+  HEADER_BUTTON: 'header__button',
 };
 
-function createHeader() {
+const BUTTON_TEXT = {
+  NEW_GAME: 'Новая игра',
+  LEADERS: 'Таблица лидеров',
+};
 
-  function init() {
-    const headerElement = document.createElement('header');
-    headerElement.textContent = 'header';
-    headerElement.classList.add(HEADER_CLASSES.HEADER);
-    return headerElement;
-  }
+function createButton(text, onClick) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.classList.add(HEADER_CLASSES.HEADER_BUTTON);
+  button.textContent = text;
+  button.addEventListener('click', onClick);
 
-  return {
-    init,
-  }
+  return button;
 }
 
-export const header = createHeader();
+export function createHeader({ onNewGame, onLeaderBoard }) {
+  const element = document.createElement('header');
+  element.classList.add(HEADER_CLASSES.HEADER);
+
+  element.appendChild(createButton(BUTTON_TEXT.NEW_GAME, onNewGame));
+  element.appendChild(createButton(BUTTON_TEXT.LEADERS, onLeaderBoard));
+
+  return { element };
+}

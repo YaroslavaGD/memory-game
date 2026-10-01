@@ -7,10 +7,12 @@ export function createStore(reducer, initialState) {
   }
 
   function dispatch(action) {
+    const prevState = state;
     const nextSate = reducer(state, action);
+    if (nextSate === prevState) return;
     state = nextSate;
 
-    listeners.forEach((fn) => fn(state, action));
+    listeners.forEach((fn) => fn(state, prevState, action));
   }
 
   function subscribe(fn) {

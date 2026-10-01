@@ -3,7 +3,7 @@ import { ACTION_TYPES, GAME_STATUS } from "./constants.js";
 export function initTimer(store, delay = 700){
   let timerId = null;
 
-  store.subscribe((state, action) => {
+  store.subscribe((state, prev, action) => {
     if (action.type === ACTION_TYPES.NEW_GAME) {
       clearTimeout(timerId);
       timerId = null;

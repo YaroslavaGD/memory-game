@@ -5,6 +5,33 @@ body {
   background-color: var(--body-bg);
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: var(--card-text);
+}
+
+.header__button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: var(--card-text);
+  background-color: var(--card-bg-cover);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.statistic {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  color: var(--card-text);
+  font-size: 1.25rem;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 0fr);
