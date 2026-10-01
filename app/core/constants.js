@@ -3,3 +3,5 @@ export const CARD_STATUS = {
   OPEN: 'open',
   MATCHED: 'matched',
 };
+
+export const PAIRS_COUNT = 8;

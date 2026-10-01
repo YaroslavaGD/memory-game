@@ -1,8 +1,8 @@
 import { header } from "./ui/header.js";
 import { cards } from "./ui/cards.js";
-import { shuffle } from "./core/shuffle.js";
 import { buildDeck } from "./core/deck.js";
 import { CARDS_DATA } from "./cards-data.js";
+import { PAIRS_COUNT } from "./core/constants.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -22,7 +22,7 @@ const App = (() => {
       app.appendChild(header.init());
       app.appendChild(main);
 
-      console.log('deck = ', buildDeck(CARDS_DATA.slice(0, 8)));
+      console.log('deck = ', buildDeck(CARDS_DATA.slice(0, PAIRS_COUNT)));
     }
   }
 })();
