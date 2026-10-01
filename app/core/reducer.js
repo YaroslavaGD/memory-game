@@ -66,6 +66,8 @@ export function reducer(state, action) {
     }
 
     case ACTION_TYPES.MISMATCHED: {
+      if (state.gameStatus !== GAME_STATUS.CHECKING) return state;
+  
       const closedCards = state.cards.map((card) => {
         if (card.status === CARD_STATUS.OPEN) {
           return {

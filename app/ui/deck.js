@@ -8,6 +8,7 @@ export function createDeck(onCardClick) {
   const element = document.createElement('div');
   element.classList.add(DECK_CLASSES.CARDS);
 
+  // uid => { element, update}
   let items = new Map();
   
   function update(state) {
@@ -15,7 +16,6 @@ export function createDeck(onCardClick) {
                       state.cards.some((card) => !items.has(card.uid));
 
     if (isNeedNew) {
-      // uid => { element, update}
       items = new Map(); 
 
       element.replaceChildren();

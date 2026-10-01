@@ -5,6 +5,7 @@ import { CARDS_DATA } from "./cards-data.js";
 import { ACTION_TYPES } from "./core/constants.js";
 import { createStore } from "./store/store.js";
 import { createInitialState, reducer } from "./core/reducer.js";
+import { initTimer } from "./core/timer.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -30,6 +31,8 @@ const App = (() => {
 
       board.update(store.getState());
       store.subscribe((state) => board.update(state));
+
+      initTimer(store);
     }
   }
 })();
