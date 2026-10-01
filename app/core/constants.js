@@ -13,4 +13,6 @@ export const GAME_STATUS = {
 
 export const ACTION_TYPES = {
   NEW_GAME: 'new-game',
+  CARD_CLICKED: 'card-clicked',
+  MISMATCHED: 'mismatched',
 }

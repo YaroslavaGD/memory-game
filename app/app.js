@@ -30,6 +30,9 @@ const App = (() => {
       store.subscribe((state, action) => console.log(action.type, state));
 
       store.dispatch({ type: ACTION_TYPES.NEW_GAME, deck });
+
+      store.dispatch({type: ACTION_TYPES.CARD_CLICKED, uid: 0});
+      store.dispatch({type: ACTION_TYPES.CARD_CLICKED, uid: 13});
     }
   }
 })();
