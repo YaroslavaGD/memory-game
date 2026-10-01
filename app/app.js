@@ -1,5 +1,6 @@
-import { header } from "./modules/header.js";
-import { cards } from "./modules/cards.js";
+import { header } from "./ui/header.js";
+import { cards } from "./ui/cards.js";
+import { shuffle } from "./core/shuffle.js";
 
 const App = (() => {
   return {
@@ -10,6 +11,10 @@ const App = (() => {
 
       app.appendChild(header.init());
       app.appendChild(cards.init());
+
+      const testArr = [1,2,3];
+      console.log('testArr', testArr);
+      console.log('shuffle', shuffle(testArr));
     }
   }
 })();
