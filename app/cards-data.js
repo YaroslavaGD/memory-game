@@ -36,8 +36,8 @@ export const CARDS_DATA = [
     id: 3,
     name: 'Prince Cornelius the Grand',
     houses: 512,
-    image: 'assets/monsters/small/4.png',
-    imageBig: 'assets/monsters/big/4.png',
+    image: 'assets/monsters/small/3.png',
+    imageBig: 'assets/monsters/big/3.png',
     description: `Всё у него большое: дворец, корона и самомнение.
       Cornelius уверен, что рождён для великих дел.
       Особенно для великих пиров.`,
@@ -47,8 +47,8 @@ export const CARDS_DATA = [
     id: 4,
     name: 'Prince Spudley the Cozy',
     houses: 89,
-    image: 'assets/monsters/small/6.png',
-    imageBig: 'assets/monsters/big/6.png',
+    image: 'assets/monsters/small/4.png',
+    imageBig: 'assets/monsters/big/4.png',
     description: `Идеальный принц для тех, кто устал от приключений.
       Любит диван, тёплый ужин и чтобы никто никуда не торопился.
       Его главное оружие - уют.`,
@@ -58,8 +58,8 @@ export const CARDS_DATA = [
     id: 5,
     name: 'Prince Cabbageon the Sturdy',
     houses: 340,
-    image: 'assets/monsters/small/7.png',
-    imageBig: 'assets/monsters/big/7.png',
+    image: 'assets/monsters/small/5.png',
+    imageBig: 'assets/monsters/big/5.png',
     description: `Крепкий, как его любимый кочан.
       Не боится драконов, налогов и семейных праздников.
       Романтики не обещает. Зато обещания выполняет.`,
@@ -69,8 +69,8 @@ export const CARDS_DATA = [
     id: 6,
     name: 'Prince Pepperon the Spicy',
     houses: 71,
-    image: 'assets/monsters/small/8.png',
-    imageBig: 'assets/monsters/big/8.png',
+    image: 'assets/monsters/small/6.png',
+    imageBig: 'assets/monsters/big/6.png',
     description: `С ним никогда не бывает пресно.
       Pepperon любит риск, дуэли и решения, о которых жалеют утром.
       Иногда он - причина приключений. Иногда - причина пожара.`,
@@ -80,8 +80,8 @@ export const CARDS_DATA = [
     id: 7,
     name: 'Prince Pumpkin the Mysterious',
     houses: 1000,
-    image: 'assets/monsters/small/9.png',
-    imageBig: 'assets/monsters/big/9.png',
+    image: 'assets/monsters/small/7.png',
+    imageBig: 'assets/monsters/big/7.png',
     description: `Богат, загадочен и появляется только после заката.
       У него тысяча домов, тринадцать карет и ни одного понятного объяснения.
       Что может пойти не так?`,

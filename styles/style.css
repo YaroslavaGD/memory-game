@@ -26,15 +26,22 @@ body {
   cursor: pointer;
   padding: 0;
   font-size: 2rem;
-  transition: background-color ease-in var(--anim-duration);
   perspective: 1000px;
-  transition: transform .5s, filter 1s ease-in;
+  transition: transform .3s, filter, background-color, outline var(--anim-duration) ease-in;
 
 }
 
-.card:focus-visible,
-.card:hover {
-  background-color: var(--card-bg--hover2);
+.card:focus-visible {
+  outline: 2px solid var(--card-bg);
+  outline-offset: 2px;
+}
+@media (hover: hover) {
+  .card:hover {
+    /* filter: brightness(1.2); */
+    outline: 2px solid var(--card-bg);
+    outline-offset: 2px;
+    /* background-color: var(--card-bg--hover2); */
+  }
 }
 
 .card__content {
@@ -47,11 +54,13 @@ body {
   transition: transform .3s;
 }
 
-.card--open {
+.card[data-state="open"],
+.card[data-state="matched"] {
   pointer-events: none;
 }
 
-.card--open .card__content {
+.card[data-state="open"] .card__content,
+.card[data-state="matched"] .card__content {
   transform: rotateY(180deg);
 }
 
@@ -72,7 +81,6 @@ body {
 }
 
 .card__img {
-  /* position: absolute; */
   display: block;
   backface-visibility: hidden;
   --webkit-backface-visibility: hidden;
