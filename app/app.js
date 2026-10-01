@@ -2,7 +2,9 @@ import { header } from "./ui/header.js";
 import { cards } from "./ui/cards.js";
 import { buildDeck } from "./core/deck.js";
 import { CARDS_DATA } from "./cards-data.js";
-import { PAIRS_COUNT } from "./core/constants.js";
+import { ACTION_TYPES, PAIRS_COUNT } from "./core/constants.js";
+import { createStore } from "./store/store.js";
+import { createInitialState, reducer } from "./core/reducer.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -22,7 +24,12 @@ const App = (() => {
       app.appendChild(header.init());
       app.appendChild(main);
 
-      console.log('deck = ', buildDeck(CARDS_DATA.slice(0, PAIRS_COUNT)));
+      const deck = buildDeck(CARDS_DATA.slice(0, PAIRS_COUNT));
+      const store = createStore(reducer, createInitialState(deck));
+
+      store.subscribe((state, action) => console.log(action.type, state));
+
+      store.dispatch({ type: ACTION_TYPES.NEW_GAME, deck });
     }
   }
 })();
