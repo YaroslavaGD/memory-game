@@ -9,7 +9,6 @@ const WIN_CLASSES = {
 
 const TEXT = {
   WIN: 'Принцесса сделала выбор!',
-  ALL_PAIRS: 'Вы нашли все пары за',
   MOVES: 'Ходов:',
   NEW_GAME: 'Новая игра',
   CLOSE: 'Закрыть'
@@ -44,7 +43,7 @@ export function createWinContent(prince, moves, { onNewGame, onClose }) {
 
   const movesText = document.createElement('p');
   movesText.classList.add(WIN_CLASSES.TEXT);
-  movesText.textContent = `${TEXT.MOVES}: ${moves}`;
+  movesText.textContent = `${TEXT.MOVES} ${moves}`;
 
   const actions = document.createElement('div');
   actions.classList.add(WIN_CLASSES.ACTIONS);

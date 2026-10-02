@@ -10,6 +10,7 @@ import { createStatistic } from "./ui/statistic.js";
 import { createVerdict } from "./ui/verdict.js";
 import { createModal } from "./ui/modal.js";
 import { createWinContent } from "./ui/win-content.js";
+import { selectWinner } from "./core/selectors.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -35,7 +36,7 @@ function init() {
   });
   const statistic = createStatistic();
   const board = createDeck((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));
-  const verdict = createVerdict(CARDS_DATA);
+  const verdict = createVerdict();
   const main = document.createElement('main');
   main.classList.add(MAIN_CLASSES.MAIN);
   main.append(statistic.element, verdict.element, board.element);
@@ -50,7 +51,7 @@ function init() {
 
     if (!isJustWin) return;
 
-    const winner = CARDS_DATA.find((prince) => prince.id === state.lastMatchedId);
+    const winner = selectWinner(state);
     const winContent = createWinContent(winner, state.moves, {
       onNewGame: () => {
         modal.close();

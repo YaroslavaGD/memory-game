@@ -1,24 +1,27 @@
-import { GAME_STATUS } from "../core/constants.js";
+import { selectLastEaten, selectWinner } from "../core/selectors.js";
 
 const TEXT = {
   PLAY: 'Принцесса выбирает жениха. Найдите пары!',
   WON: 'Принцесса выбрала:',
-  MISMATCHED: 'Принцесса съела:',
+  EATEN: 'Принцесса съела:',
 }
 
-export function createVerdict(princes) {
+export function createVerdict() {
   const element = document.createElement('p');
   element.classList.add('verdict');
 
   function update(state) {
-    const prince = princes.find((p) => p.id === state.lastMatchedId);
+    const winner = selectWinner(state);
+    const eaten = selectLastEaten(state);
 
-    if (!prince) {
-      element.textContent = TEXT.PLAY;
-    } else if (state.gameStatus === GAME_STATUS.WON) {
-      element.textContent = `${TEXT.WON}: ${prince.name}`;
+    // const prince = princes.find((p) => p.id === state.lastMatchedId);
+
+    if (winner) {
+      element.textContent = `${TEXT.WON} ${winner.name}`;
+    } else if (eaten) {
+      element.textContent = `${TEXT.EATEN} ${eaten.name}. ${eaten.verdict}`;
     } else {
-      element.textContent = `${TEXT.MISMATCHED}: ${prince.name}. ${prince.verdict}`;
+      element.textContent = TEXT.PLAY;
     }
   }
 

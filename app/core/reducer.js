@@ -5,7 +5,8 @@ export function createInitialState(deck) {
     cards: deck,
     moves: 0,
     matchedPairs: 0,
-    lastMatchedId: null,
+    eatenIds: [],
+    winnerId: null,
     gameStatus: GAME_STATUS.PLAYING,
   };
 }
@@ -42,6 +43,7 @@ export function reducer(state, action) {
 
       //MATCHED
       if (openCards[0].pairId === openCards[1].pairId) {
+        const pairId = openCards[0].pairId;
         const matchedPairs = state.matchedPairs + 1;
         const isLast = matchedPairs === PAIRS_COUNT;
         const fate = isLast ? FATE.WINNER : FATE.EATEN;
@@ -57,7 +59,8 @@ export function reducer(state, action) {
           cards: cardsWithMatched,
           moves,
           matchedPairs,
-          lastMatchedId: openCards[0].pairId,
+          eatenIds: isLast ? state.eatenIds : [...state.eatenIds, pairId],
+          winnerId: isLast ? pairId : null,
           gameStatus: isLast ? GAME_STATUS.WON : GAME_STATUS.PLAYING,
         }
       }
