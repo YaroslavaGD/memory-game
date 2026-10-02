@@ -23,7 +23,7 @@ function startNewGame() {
   store.dispatch({ type: ACTION_TYPES.NEW_GAME, cards: buildCards(PRINCES) });
 }
 
-function showLeaderBoard() {}
+function showLeaderboard() {}
 
 function init() {
   const app = document.createElement('div');
@@ -32,7 +32,7 @@ function init() {
 
   const header = createHeader({
     onNewGame: startNewGame,
-    onLeaderBoard: showLeaderBoard,
+    onLeaderboard: showLeaderboard,
   });
   const stats = createStats();
   const board = createBoard((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));

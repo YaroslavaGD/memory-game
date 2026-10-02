@@ -18,12 +18,12 @@ function createButton(text, onClick) {
   return button;
 }
 
-export function createHeader({ onNewGame, onLeaderBoard }) {
+export function createHeader({ onNewGame, onLeaderboard }) {
   const element = document.createElement('header');
   element.classList.add(HEADER_CLASSES.HEADER);
 
   element.appendChild(createButton(BUTTON_TEXT.NEW_GAME, onNewGame));
-  element.appendChild(createButton(BUTTON_TEXT.LEADERS, onLeaderBoard));
+  element.appendChild(createButton(BUTTON_TEXT.LEADERS, onLeaderboard));
 
   return { element };
 }
