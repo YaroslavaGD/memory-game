@@ -1,4 +1,4 @@
-export const CARDS_DATA = [
+export const PRINCES = [
   {
     id: 0,
     name: 'Prince Onionel the Sensitive',

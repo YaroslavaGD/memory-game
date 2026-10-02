@@ -1,6 +1,6 @@
-import { CARDS_DATA } from "../cards-data.js";
+import { PRINCES } from "../princes-data.js";
 
-const getPrince = (id) => CARDS_DATA.find((prince) => prince.id === id) ?? null;
+const getPrince = (id) => PRINCES.find((prince) => prince.id === id) ?? null;
 
 export const selectWinner = (state) => getPrince(state.winnerId);
 
