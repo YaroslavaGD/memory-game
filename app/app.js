@@ -13,6 +13,7 @@ import { createWinContent } from "./ui/win-content.js";
 import { selectWinner } from "./core/selectors.js";
 import { createLeaderboardContent } from "./ui/leaderboard-content.js";
 import { loadResults, saveResult } from "./core/leaderboard-storage.js";
+import { setupSounds } from "./core/sounds.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -20,6 +21,7 @@ const MAIN_CLASSES = {
 
 const store = createStore(reducer, createInitialState(buildCards(PRINCES)));
 setupMismatchTimer(store);
+setupSounds(store);
 
 function startNewGame() {
   store.dispatch({ type: ACTION_TYPES.NEW_GAME, cards: buildCards(PRINCES) });
