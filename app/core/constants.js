@@ -1,4 +1,4 @@
-export const PAIRS_COUNT = 1;
+export const PAIRS_COUNT = 8;
 export const CARD_STATUS = {
   CLOSED: 'closed',
   OPEN: 'open',
