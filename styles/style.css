@@ -215,3 +215,26 @@ body.is-locked {
 .win__name {
   margin: .75rem 0 .25rem;
 }
+
+/* leaderboard */
+.leaderboard__table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+
+.leaderboard__table th,
+.leaderboard__table td {
+  padding: .4rem .75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.leaderboard__empty {
+  margin: 1.5rem 0;
+}
+
+.leaderboard__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}

@@ -11,6 +11,8 @@ import { createVerdict } from "./ui/verdict.js";
 import { createModal } from "./ui/modal.js";
 import { createWinContent } from "./ui/win-content.js";
 import { selectWinner } from "./core/selectors.js";
+import { createLeaderboardContent } from "./ui/leaderboard-content.js";
+import { loadResults, saveResult } from "./core/leaderboard-storage.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -23,12 +25,18 @@ function startNewGame() {
   store.dispatch({ type: ACTION_TYPES.NEW_GAME, cards: buildCards(PRINCES) });
 }
 
-function showLeaderboard() {}
-
 function init() {
   const app = document.createElement('div');
   app.id = 'app';
   document.body.appendChild(app);
+
+  const modal = createModal();
+
+  function showLeaderboard() {
+    modal.open(
+      createLeaderboardContent(loadResults(), { onClose: modal.close })
+    );
+  }
 
   const header = createHeader({
     onNewGame: startNewGame,
@@ -42,14 +50,14 @@ function init() {
   main.append(stats.element, verdict.element, board.element);
 
   app.append(header.element, main);
-
-  const modal = createModal();
   app.append(modal.element);
 
   store.subscribe((state, prev) => {
     const isJustWin = prev.gameStatus !== GAME_STATUS.WON && state.gameStatus === GAME_STATUS.WON;
 
     if (!isJustWin) return;
+
+    saveResult(state.moves);
 
     const winner = selectWinner(state);
     const winContent = createWinContent(winner, state.moves, {

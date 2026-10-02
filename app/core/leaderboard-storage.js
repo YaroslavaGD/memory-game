@@ -18,7 +18,7 @@ export function loadResults() {
   }
 }
 
-export function saveResult() {
+export function saveResult(moves) {
   const results = sortResults([...loadResults(), { moves, finishedAt: Date.now() }]).slice(0, MAX_RESULTS);
 
   try {
