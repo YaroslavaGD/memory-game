@@ -5,7 +5,7 @@ import { PRINCES } from "./princes-data.js";
 import { ACTION_TYPES, GAME_STATUS } from "./core/constants.js";
 import { createStore } from "./store/store.js";
 import { createInitialState, reducer } from "./core/reducer.js";
-import { initTimer } from "./core/timer.js";
+import { setupMismatchTimer } from "./core/timer.js";
 import { createStats } from "./ui/stats.js";
 import { createVerdict } from "./ui/verdict.js";
 import { createModal } from "./ui/modal.js";
@@ -17,13 +17,13 @@ const MAIN_CLASSES = {
 }
 
 const store = createStore(reducer, createInitialState(buildCards(PRINCES)));
-initTimer(store);
+setupMismatchTimer(store);
 
 function startNewGame() {
   store.dispatch({ type: ACTION_TYPES.NEW_GAME, cards: buildCards(PRINCES) });
 }
 
-function showLeaders() {}
+function showLeaderBoard() {}
 
 function init() {
   const app = document.createElement('div');
@@ -32,7 +32,7 @@ function init() {
 
   const header = createHeader({
     onNewGame: startNewGame,
-    onLeaderBoard: showLeaders,
+    onLeaderBoard: showLeaderBoard,
   });
   const stats = createStats();
   const board = createBoard((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));

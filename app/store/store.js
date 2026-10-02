@@ -8,9 +8,9 @@ export function createStore(reducer, initialState) {
 
   function dispatch(action) {
     const prevState = state;
-    const nextSate = reducer(state, action);
-    if (nextSate === prevState) return;
-    state = nextSate;
+    const nextState = reducer(state, action);
+    if (nextState === prevState) return;
+    state = nextState;
 
     listeners.forEach((fn) => fn(state, prevState, action));
   }

@@ -1,6 +1,6 @@
 import { ACTION_TYPES, GAME_STATUS } from "./constants.js";
 
-export function initTimer(store, delay = 700){
+export function setupMismatchTimer(store, delay = 700){
   let timerId = null;
 
   store.subscribe((state, prev, action) => {
