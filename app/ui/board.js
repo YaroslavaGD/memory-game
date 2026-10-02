@@ -1,12 +1,12 @@
 import { createCard } from "./card.js"; 
 
-const DECK_CLASSES = {
-  CARDS: 'cards',
+const BOARD_CLASSES = {
+  BOARD: 'board',
 }
 
-export function createDeck(onCardClick) {
+export function createBoard(onCardClick) {
   const element = document.createElement('div');
-  element.classList.add(DECK_CLASSES.CARDS);
+  element.classList.add(BOARD_CLASSES.BOARD);
 
   // uid => { element, update}
   let items = new Map();

@@ -1,5 +1,5 @@
 import { createHeader } from "./ui/header.js";
-import { createDeck } from "./ui/deck.js";
+import { createBoard } from "./ui/board.js";
 import { buildDeck } from "./core/deck.js";
 import { PRINCES } from "./princes-data.js";
 import { ACTION_TYPES, GAME_STATUS } from "./core/constants.js";
@@ -35,7 +35,7 @@ function init() {
     onLeaderBoard: showLeaders,
   });
   const statistic = createStatistic();
-  const board = createDeck((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));
+  const board = createBoard((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));
   const verdict = createVerdict();
   const main = document.createElement('main');
   main.classList.add(MAIN_CLASSES.MAIN);

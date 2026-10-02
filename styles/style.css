@@ -36,9 +36,8 @@ body.is-locked {
   font-size: 1.25rem;
 }
 
-/* cards */
-
-.cards {
+/* board */
+.board {
   display: grid;
   grid-template-columns: repeat(4, 0fr);
   gap: .25rem;
@@ -48,6 +47,7 @@ body.is-locked {
   padding: 0;
 }
 
+/* card */
 .card {
   position: relative;
   min-width: 15dvh;
