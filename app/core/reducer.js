@@ -1,8 +1,8 @@
 import { ACTION_TYPES, CARD_STATUS, FATE, GAME_STATUS, PAIRS_COUNT } from "./constants.js";
 
-export function createInitialState(deck) {
+export function createInitialState(cards) {
   return {
-    cards: deck,
+    cards: cards,
     moves: 0,
     matchedPairs: 0,
     eatenIds: [],
@@ -15,7 +15,7 @@ export function reducer(state, action) {
   switch (action.type) {
 
     case ACTION_TYPES.NEW_GAME:
-      return createInitialState(action.deck);
+      return createInitialState(action.cards);
 
     case ACTION_TYPES.CARD_CLICKED: {
       const clickedCard = state.cards.find((card) => card.uid === action.uid);

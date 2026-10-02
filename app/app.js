@@ -1,6 +1,6 @@
 import { createHeader } from "./ui/header.js";
 import { createBoard } from "./ui/board.js";
-import { buildDeck } from "./core/deck.js";
+import { buildCards } from "./core/cards.js";
 import { PRINCES } from "./princes-data.js";
 import { ACTION_TYPES, GAME_STATUS } from "./core/constants.js";
 import { createStore } from "./store/store.js";
@@ -16,11 +16,11 @@ const MAIN_CLASSES = {
   MAIN: 'main',
 }
 
-const store = createStore(reducer, createInitialState(buildDeck(PRINCES)));
+const store = createStore(reducer, createInitialState(buildCards(PRINCES)));
 initTimer(store);
 
 function startNewGame() {
-  store.dispatch({ type: ACTION_TYPES.NEW_GAME, deck: buildDeck(PRINCES) });
+  store.dispatch({ type: ACTION_TYPES.NEW_GAME, cards: buildCards(PRINCES) });
 }
 
 function showLeaders() {}

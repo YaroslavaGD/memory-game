@@ -2,10 +2,10 @@ import { CARD_STATUS } from "./constants.js";
 import { shuffle } from "./shuffle.js"
 
 let deckCounter = 0;
-export function buildDeck(cards) {
-  const cardPairs = cards.flatMap((card) => [
-    { pairId: card.id, image: card.image, name: card.name },
-    { pairId: card.id, image: card.image, name: card.name },
+export function buildCards(princes) {
+  const cardPairs = princes.flatMap((prince) => [
+    { pairId: prince.id, image: prince.image, name: prince.name },
+    { pairId: prince.id, image: prince.image, name: prince.name },
   ]);
   
   deckCounter += 1;
