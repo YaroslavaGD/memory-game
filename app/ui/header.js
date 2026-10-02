@@ -5,7 +5,7 @@ const HEADER_CLASSES = {
 
 const BUTTON_TEXT = {
   NEW_GAME: 'Новая игра',
-  LEADERS: 'Таблица лидеров',
+  LEADERBOARD: 'Таблица лидеров',
 };
 
 function createButton(text, onClick) {
@@ -23,7 +23,7 @@ export function createHeader({ onNewGame, onLeaderboard }) {
   element.classList.add(HEADER_CLASSES.HEADER);
 
   element.appendChild(createButton(BUTTON_TEXT.NEW_GAME, onNewGame));
-  element.appendChild(createButton(BUTTON_TEXT.LEADERS, onLeaderboard));
+  element.appendChild(createButton(BUTTON_TEXT.LEADERBOARD, onLeaderboard));
 
   return { element };
 }
