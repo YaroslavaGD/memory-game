@@ -36,6 +36,8 @@ body.is-locked {
   font-size: 1.25rem;
 }
 
+/* cards */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 0fr);
@@ -67,6 +69,7 @@ body.is-locked {
   outline: 2px solid var(--card-bg);
   outline-offset: 2px;
 }
+
 @media (hover: hover) {
   .card:hover {
     outline: 2px solid var(--card-bg);
@@ -147,7 +150,6 @@ body.is-locked {
   transform: rotateY(180deg);
 }
 
-
 .card__img--back {
   transform: rotateY(0deg);
 }
@@ -165,4 +167,51 @@ body.is-locked {
   padding: 0 1rem;
   text-align: center;
   color: var(--card-text);
+}
+
+/* modal */
+.modal {
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--body-bg);
+  color: var(--card-text);
+}
+.modal::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}
+
+.modal__body {
+  padding: 1.5rem 2rem;
+  min-width: min(20rem, 80vw);
+  text-align: center;
+}
+
+.modal__button {
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  color: var(--card-text);
+  background-color: var(--card-bg-cover);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* win */
+.win__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.win__img {
+  display: block;
+  max-width: min(20rem, 70vw);
+  margin: 1rem auto 0;
+  border-radius: 8px;
+}
+
+.win__name {
+  margin: .75rem 0 .25rem;
 }

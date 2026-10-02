@@ -2,12 +2,14 @@ import { createHeader } from "./ui/header.js";
 import { createDeck } from "./ui/deck.js";
 import { buildDeck } from "./core/deck.js";
 import { CARDS_DATA } from "./cards-data.js";
-import { ACTION_TYPES } from "./core/constants.js";
+import { ACTION_TYPES, GAME_STATUS } from "./core/constants.js";
 import { createStore } from "./store/store.js";
 import { createInitialState, reducer } from "./core/reducer.js";
 import { initTimer } from "./core/timer.js";
 import { createStatistic } from "./ui/statistic.js";
 import { createVerdict } from "./ui/verdict.js";
+import { createModal } from "./ui/modal.js";
+import { createWinContent } from "./ui/win-content.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -39,6 +41,26 @@ function init() {
   main.append(statistic.element, verdict.element, board.element);
 
   app.append(header.element, main);
+
+  const modal = createModal();
+  app.append(modal.element);
+
+  store.subscribe((state, prev) => {
+    const isJustWin = prev.gameStatus !== GAME_STATUS.WON && state.gameStatus === GAME_STATUS.WON;
+
+    if (!isJustWin) return;
+
+    const winner = CARDS_DATA.find((prince) => prince.id === state.lastMatchedId);
+    const winContent = createWinContent(winner, state.moves, {
+      onNewGame: () => {
+        modal.close();
+        startNewGame();
+      },
+      onClose: modal.close,
+    });
+
+    modal.open(winContent);
+  });
 
   function render(state) {
     statistic.update(state);
