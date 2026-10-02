@@ -4,14 +4,22 @@ const SOUNDS_PATH = 'assets/sounds';
 
 const SOUNDS_FILES = {
   CLICK: 'menu-button-click.wav',
-  CHEW: 'chew.ogg',
+  // CHEW: 'chew.ogg',
+  CHEW: 'chew.mp3',
   HMPH: 'hmph.wav',
   END_GAME: 'end-game.wav'
 };
 
+const DEFAULT_VOLUME = 0.2;
+
+let volume = DEFAULT_VOLUME;
+const audios = [];
+
 function createSound(file) {
   const audio = new Audio(`${SOUNDS_PATH}/${file}`);
   audio.preload = 'auto';
+  audio.volume = volume;
+  audios.push(audio);
 
   return () => {
     audio.currentTime = 0;
@@ -22,6 +30,16 @@ function createSound(file) {
 const countRevealed = (state) => 
   state.cards.filter((card) => card.status !== CARD_STATUS.CLOSED).length;
 
+export function getVolume() {
+  return volume;
+}
+
+export function setVolume(value) {
+  volume = Math.min(1, Math.max(0, value));
+  audios.forEach((audio) => {
+    audio.volume = volume;
+  });
+}
 export function setupSounds(store) {
   const play = {
     click: createSound(SOUNDS_FILES.CLICK),

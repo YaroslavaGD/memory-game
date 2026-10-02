@@ -14,6 +14,7 @@ import { selectWinner } from "./core/selectors.js";
 import { createLeaderboardContent } from "./ui/leaderboard-content.js";
 import { loadResults, saveResult } from "./core/leaderboard-storage.js";
 import { setupSounds } from "./core/sounds.js";
+import { createVolume } from "./ui/volume.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -44,6 +45,10 @@ function init() {
     onNewGame: startNewGame,
     onLeaderboard: showLeaderboard,
   });
+
+  const volume = createVolume();
+  header.element.append(volume.element);
+
   const stats = createStats();
   const board = createBoard((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));
   const verdict = createVerdict();
