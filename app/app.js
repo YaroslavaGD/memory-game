@@ -6,7 +6,7 @@ import { ACTION_TYPES, GAME_STATUS } from "./core/constants.js";
 import { createStore } from "./store/store.js";
 import { createInitialState, reducer } from "./core/reducer.js";
 import { initTimer } from "./core/timer.js";
-import { createStatistic } from "./ui/statistic.js";
+import { createStats } from "./ui/stats.js";
 import { createVerdict } from "./ui/verdict.js";
 import { createModal } from "./ui/modal.js";
 import { createWinContent } from "./ui/win-content.js";
@@ -34,12 +34,12 @@ function init() {
     onNewGame: startNewGame,
     onLeaderBoard: showLeaders,
   });
-  const statistic = createStatistic();
+  const stats = createStats();
   const board = createBoard((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));
   const verdict = createVerdict();
   const main = document.createElement('main');
   main.classList.add(MAIN_CLASSES.MAIN);
-  main.append(statistic.element, verdict.element, board.element);
+  main.append(stats.element, verdict.element, board.element);
 
   app.append(header.element, main);
 
@@ -64,7 +64,7 @@ function init() {
   });
 
   function render(state) {
-    statistic.update(state);
+    stats.update(state);
     board.update(state);
     verdict.update(state);
   }

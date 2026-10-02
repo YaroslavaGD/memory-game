@@ -27,7 +27,7 @@ body.is-locked {
   cursor: pointer;
 }
 
-.statistic {
+.stats {
   display: flex;
   justify-content: center;
   gap: 2rem;

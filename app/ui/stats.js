@@ -1,8 +1,8 @@
 import { PAIRS_COUNT } from "../core/constants.js";
 
-const STATISTIC_CLASSES = {
-  STATISTIC: 'statistic',
-  ITEM: 'statistic__item',
+const STATS_CLASSES = {
+  STATS: 'stats',
+  ITEM: 'stats__item',
 };
 
 const TEXT = {
@@ -11,15 +11,15 @@ const TEXT = {
   FROM: 'из'
 }
 
-export function createStatistic() {
+export function createStats() {
   const element = document.createElement('div');
-  element.classList.add(STATISTIC_CLASSES.STATISTIC);
+  element.classList.add(STATS_CLASSES.STATS);
 
   const moves = document.createElement('span');
-  moves.classList.add(STATISTIC_CLASSES.ITEM);
+  moves.classList.add(STATS_CLASSES.ITEM);
 
   const pairs = document.createElement('span');
-  pairs.classList.add(STATISTIC_CLASSES.ITEM);
+  pairs.classList.add(STATS_CLASSES.ITEM);
 
   element.append(moves, pairs);
 
