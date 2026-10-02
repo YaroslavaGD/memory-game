@@ -7,6 +7,7 @@ import { createStore } from "./store/store.js";
 import { createInitialState, reducer } from "./core/reducer.js";
 import { initTimer } from "./core/timer.js";
 import { createStatistic } from "./ui/statistic.js";
+import { createVerdict } from "./ui/verdict.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -32,15 +33,17 @@ function init() {
   });
   const statistic = createStatistic();
   const board = createDeck((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));
+  const verdict = createVerdict(CARDS_DATA);
   const main = document.createElement('main');
   main.classList.add(MAIN_CLASSES.MAIN);
-  main.append(statistic.element, board.element);
+  main.append(statistic.element, verdict.element, board.element);
 
   app.append(header.element, main);
 
   function render(state) {
     statistic.update(state);
     board.update(state);
+    verdict.update(state);
   }
 
   render(store.getState());

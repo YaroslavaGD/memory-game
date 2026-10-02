@@ -16,3 +16,8 @@ export const ACTION_TYPES = {
   CARD_CLICKED: 'card-clicked',
   MISMATCHED: 'mismatched',
 }
+
+export const FATE = {
+  EATEN: 'eaten',
+  WINNER: 'winner',
+};

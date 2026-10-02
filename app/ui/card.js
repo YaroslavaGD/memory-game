@@ -38,6 +38,11 @@ export function createCard(card, onClick) {
 
     function update(card) {
       element.dataset.state = card.status;
+      if (card.fate) {
+        element.dataset.fate = card.fate;
+      } else {
+        delete element.dataset.fate;
+      }
     }
 
     update(card);

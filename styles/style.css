@@ -5,6 +5,10 @@ body {
   background-color: var(--body-bg);
 }
 
+body.is-locked {
+  overflow: hidden;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -43,6 +47,7 @@ body {
 }
 
 .card {
+  position: relative;
   min-width: 15dvh;
   height: auto;
   background-color: var(--body-bg);
@@ -64,10 +69,8 @@ body {
 }
 @media (hover: hover) {
   .card:hover {
-    /* filter: brightness(1.2); */
     outline: 2px solid var(--card-bg);
     outline-offset: 2px;
-    /* background-color: var(--card-bg--hover2); */
   }
 }
 
@@ -89,6 +92,28 @@ body {
 .card[data-state="open"] .card__content,
 .card[data-state="matched"] .card__content {
   transform: rotateY(180deg);
+}
+
+.card[data-fate="eaten"] .card__img--front {
+  filter: grayscale(1) brightness(.6);
+}
+
+.card[data-fate="eaten"]::after {
+  content: "Съеден";
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  transform: translateX(-50%) rotate(-8deg);
+  padding: .1rem .5rem;
+  font-size: 1rem;
+  color: var(--body-bg);
+  background: var(--card-text);
+  border-radius: 4px;
+}
+
+.card[data-fate="winner"] {
+  outline: 3px solid gold;
+  outline-offset: 2px;
 }
 
 .card__content::before {
@@ -130,4 +155,14 @@ body {
 .card__img--back {
   position: absolute;
   inset: 0;
+}
+
+/* verdict */
+.verdict {
+  min-height: 3em;
+  margin: 0 auto 1rem;
+  max-width: 40rem;
+  padding: 0 1rem;
+  text-align: center;
+  color: var(--card-text);
 }

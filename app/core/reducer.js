@@ -1,10 +1,11 @@
-import { ACTION_TYPES, CARD_STATUS, GAME_STATUS, PAIRS_COUNT } from "./constants.js";
+import { ACTION_TYPES, CARD_STATUS, FATE, GAME_STATUS, PAIRS_COUNT } from "./constants.js";
 
 export function createInitialState(deck) {
   return {
     cards: deck,
     moves: 0,
     matchedPairs: 0,
+    lastMatchedId: null,
     gameStatus: GAME_STATUS.PLAYING,
   };
 }
@@ -42,17 +43,22 @@ export function reducer(state, action) {
       //MATCHED
       if (openCards[0].pairId === openCards[1].pairId) {
         const matchedPairs = state.matchedPairs + 1;
+        const isLast = matchedPairs === PAIRS_COUNT;
+        const fate = isLast ? FATE.WINNER : FATE.EATEN;
+
         const cardsWithMatched = cards.map((card) =>(
-            card.status === CARD_STATUS.OPEN ? { ...card, status: CARD_STATUS.MATCHED } : card
+            card.status === CARD_STATUS.OPEN 
+              ? { ...card, status: CARD_STATUS.MATCHED, fate } 
+              : card
           ));
-        const newGameStatus = matchedPairs === PAIRS_COUNT ? GAME_STATUS.WON : GAME_STATUS.PLAYING;
 
         return {
           ...state,
           cards: cardsWithMatched,
           moves,
           matchedPairs,
-          gameStatus: newGameStatus,
+          lastMatchedId: openCards[0].pairId,
+          gameStatus: isLast ? GAME_STATUS.WON : GAME_STATUS.PLAYING,
         }
       }
 
