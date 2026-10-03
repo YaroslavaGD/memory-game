@@ -36,7 +36,9 @@ function createTable(results) {
   table.classList.add(LEADERBOARD_CLASSES.TABLE);
 
   const head = document.createElement('thead');
-  head.append();
+  const headRow = createRow('th', [TEXT.PLACE, TEXT.MOVES, TEXT.DATE]);
+  headRow.querySelectorAll('th').forEach((th) => th.setAttribute('scope', 'col'));
+  head.append(headRow);
 
   const body = document.createElement('tbody');
   results.forEach((result, index) => {
