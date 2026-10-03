@@ -23,6 +23,13 @@ export function createModal() {
 
   function open(content) {
     body.replaceChildren(content);
+    const heading = content.querySelector('h2');
+
+    if (heading) {
+      heading.id = 'modal-title';
+      element.setAttribute('aria-labelledby', 'modal-title');
+    }
+
     document.body.classList.add(MODAL_CLASSES.LOCKED);
 
     if (!element.open) element.showModal();

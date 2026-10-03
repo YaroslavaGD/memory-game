@@ -4,8 +4,8 @@ const HEADER_CLASSES = {
 };
 
 const BUTTON_TEXT = {
-  NEW_GAME: 'Новая игра',
-  LEADERBOARD: 'Таблица лидеров',
+  NEW_GAME: 'Новый ужин',
+  LEADERBOARD: 'Лучшие вечера',
 };
 
 function createButton(text, onClick) {

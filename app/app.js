@@ -19,7 +19,10 @@ import { CARD_CLASSES } from "./ui/card.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
+  TITLE: 'main__title',
 }
+
+const TITLE_TEXT = 'Не тот';
 
 const store = createStore(reducer, createInitialState(buildCards(PRINCES)));
 setupMismatchTimer(store);
@@ -51,12 +54,16 @@ function init() {
   const volume = createVolume();
   header.element.append(volume.element);
 
+  const title = document.createElement('h1');
+  title.classList.add(MAIN_CLASSES.TITLE);
+  title.textContent = TITLE_TEXT;
+
   const stats = createStats();
   const board = createBoard((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));
   const verdict = createVerdict();
   const main = document.createElement('main');
   main.classList.add(MAIN_CLASSES.MAIN);
-  main.append(stats.element, verdict.element, board.element);
+  main.append(title, verdict.element, stats.element, board.element);
 
   app.append(header.element, main);
   app.append(modal.element);

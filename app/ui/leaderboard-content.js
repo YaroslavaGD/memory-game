@@ -10,7 +10,7 @@ const LEADERBOARD_CLASSES = {
 };
 
 const TEXT = {
-  TITLE: 'Таблица лидеров',
+  TITLE: 'Лучшие вечера',
   EMPTY: 'Пока нет результатов',
   PLACE: 'Место',
   MOVES: 'Ходы',
