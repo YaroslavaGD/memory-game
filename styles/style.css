@@ -39,10 +39,10 @@ body.is-locked {
 /* board */
 .board {
   display: grid;
-  grid-template-columns: repeat(4, 0fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: .25rem;
   justify-content: center;
-  max-width: 100%;
+  max-width: min(100%, 40rem);
   margin: 0 auto;
   padding: 0;
 }
@@ -50,7 +50,7 @@ body.is-locked {
 /* card */
 .card {
   position: relative;
-  min-width: 15dvh;
+  /* min-width: 15dvh; */
   height: auto;
   background-color: var(--body-bg);
   color: var(--card-text);
