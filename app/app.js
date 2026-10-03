@@ -70,23 +70,6 @@ function init() {
   setupLeaderboardSave(store);
   setupWinModal(store, modal, startNewGame);
 
-  // store.subscribe((state, prev) => {
-  //   if (!isJustWon(state, prev)) return;
-
-  //   saveResult(state.moves);
-
-  //   const winner = selectWinner(state);
-  //   const winContent = createWinContent(winner, state.moves, {
-  //     onNewGame: () => {
-  //       modal.close();
-  //       startNewGame();
-  //     },
-  //     onClose: modal.close,
-  //   });
-
-  //   modal.open(winContent);
-  // });
-
   function render(state) {
     stats.update(state);
     board.update(state);
