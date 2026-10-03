@@ -1,4 +1,4 @@
-import { selectLastEaten, selectWinner } from "../core/selectors.js";
+import { selectLastEaten, selectWinner } from "../../core/selectors.js";
 
 const TEXT = {
   PLAY: 'Принцесса выбирает жениха. Найдите пары!',

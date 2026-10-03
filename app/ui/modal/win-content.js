@@ -1,3 +1,6 @@
+import { COMMON_TEXT } from "../../core/constants.js";
+import { createButton } from "../common/button.js";
+
 const WIN_CLASSES = {
   WRAP: 'win',
   IMAGE: 'win__img',
@@ -10,20 +13,7 @@ const WIN_CLASSES = {
 const TEXT = {
   WIN: 'Принцесса сделала выбор!',
   MOVES: 'Ходов:',
-  NEW_GAME: 'Новая игра',
-  CLOSE: 'Закрыть'
 };
-
-function createButton(text, onClick) {
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.classList.add(WIN_CLASSES.BUTTON);
-  button.textContent = text;
-  button.addEventListener('click', onClick);
-
-  return button;
-}
-
 export function createWinContent(prince, moves, { onNewGame, onClose }) {
   const wrap = document.createElement('div');
   wrap.classList.add(WIN_CLASSES.WRAP);
@@ -48,8 +38,8 @@ export function createWinContent(prince, moves, { onNewGame, onClose }) {
   const actions = document.createElement('div');
   actions.classList.add(WIN_CLASSES.ACTIONS);
   actions.append(
-    createButton(TEXT.NEW_GAME, onNewGame),
-    createButton(TEXT.CLOSE, onClose),
+    createButton(COMMON_TEXT.NEW_GAME, onNewGame, WIN_CLASSES.BUTTON),
+    createButton(COMMON_TEXT.CLOSE, onClose, WIN_CLASSES.BUTTON),
   );
 
   wrap.append(title, image, description, movesText, actions);

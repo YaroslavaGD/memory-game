@@ -22,3 +22,9 @@ export const FATE = {
   EATEN: 'eaten',
   WINNER: 'winner',
 };
+
+export const COMMON_TEXT = {
+  NEW_GAME: 'Новый ужин',
+  LEADERBOARD: 'Лучшие вечера',
+  CLOSE: 'Закрыть',
+};

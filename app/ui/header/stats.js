@@ -1,4 +1,4 @@
-import { PAIRS_COUNT } from "../core/constants.js";
+import { PAIRS_COUNT } from "../../core/constants.js";
 
 const STATS_CLASSES = {
   STATS: 'stats',

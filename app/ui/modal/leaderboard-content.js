@@ -1,4 +1,6 @@
-import { formatDate } from "../core/leaderboard-storage.js";
+import { COMMON_TEXT } from "../../core/constants.js";
+import { formatDate } from "../../core/leaderboard-storage.js";
+import { createButton } from "../common/button.js";
 
 const LEADERBOARD_CLASSES = {
   WRAP: 'leaderboard',
@@ -10,12 +12,10 @@ const LEADERBOARD_CLASSES = {
 };
 
 const TEXT = {
-  TITLE: 'Лучшие вечера',
   EMPTY: 'Пока нет результатов',
   PLACE: 'Место',
   MOVES: 'Ходы',
   DATE: 'Дата',
-  CLOSE: 'Закрыть',
 };
 
 function createCell(tag, text) {
@@ -59,7 +59,7 @@ export function createLeaderboardContent(results, { onClose }) {
 
   const title = document.createElement('h2');
   title.classList.add(LEADERBOARD_CLASSES.TITLE);
-  title.textContent = TEXT.TITLE;
+  title.textContent = COMMON_TEXT.LEADERBOARD;
 
   let list;
   if (results.length === 0) {
@@ -73,12 +73,7 @@ export function createLeaderboardContent(results, { onClose }) {
   const actions = document.createElement('div');
   actions.classList.add(LEADERBOARD_CLASSES.ACTIONS);
 
-  const closeButton = document.createElement('button');
-  closeButton.type = 'button';
-  closeButton.classList.add(LEADERBOARD_CLASSES.BUTTON);
-  closeButton.textContent = TEXT.CLOSE;
-  closeButton.addEventListener('click', onClose);
-  actions.append(closeButton);
+  actions.append(createButton(COMMON_TEXT.CLOSE, onClose, LEADERBOARD_CLASSES.BUTTON));
 
   wrap.append(title, list, actions)
   return wrap;

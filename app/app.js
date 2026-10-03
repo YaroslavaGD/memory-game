@@ -1,21 +1,21 @@
-import { createHeader } from "./ui/header.js";
-import { createBoard } from "./ui/board.js";
+import { createHeader } from "./ui/header/header.js";
+import { createBoard } from "./ui/board/board.js";
 import { buildCards } from "./core/cards.js";
 import { PRINCES } from "./princes-data.js";
 import { ACTION_TYPES, GAME_STATUS } from "./core/constants.js";
 import { createStore } from "./store/store.js";
 import { createInitialState, reducer } from "./core/reducer.js";
 import { setupMismatchTimer } from "./core/timer.js";
-import { createStats } from "./ui/stats.js";
-import { createVerdict } from "./ui/verdict.js";
-import { createModal } from "./ui/modal.js";
-import { createWinContent } from "./ui/win-content.js";
+import { createStats } from "./ui/header/stats.js";
+import { createVerdict } from "./ui/header/verdict.js";
+import { createModal } from "./ui/modal/modal.js";
+import { createWinContent } from "./ui/modal/win-content.js";
 import { selectWinner } from "./core/selectors.js";
-import { createLeaderboardContent } from "./ui/leaderboard-content.js";
+import { createLeaderboardContent } from "./ui/modal/leaderboard-content.js";
 import { loadResults, saveResult } from "./core/leaderboard-storage.js";
 import { setupSounds } from "./core/sounds.js";
-import { createVolume } from "./ui/volume.js";
-import { CARD_CLASSES } from "./ui/card.js";
+import { createVolume } from "./ui/header/volume.js";
+import { CARD_CLASSES } from "./ui/board/card.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',

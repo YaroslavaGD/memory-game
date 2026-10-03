@@ -1,4 +1,4 @@
-import { CARD_STATUS } from "../core/constants.js";
+import { CARD_STATUS } from "../../core/constants.js";
 
 export const CARD_CLASSES = {
   CARD: 'card',
