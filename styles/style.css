@@ -70,7 +70,7 @@ body.is-locked {
   padding: 0;
   font-size: 2rem;
   perspective: 1000px;
-  transition: transform .3s, filter, background-color, outline var(--anim-duration) ease-in;
+  transition: transform .3s, filter .3s, background-color .3s, outline var(--anim-duration) ease-in;
 
 }
 
@@ -147,7 +147,7 @@ body.is-locked {
 .card__img {
   display: block;
   backface-visibility: hidden;
-  --webkit-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   max-width: 100%;
   width: 100%;
   height: auto;
@@ -160,12 +160,9 @@ body.is-locked {
 }
 
 .card__img--back {
-  transform: rotateY(0deg);
-}
-
-.card__img--back {
   position: absolute;
   inset: 0;
+  transform: rotateY(0deg);
 }
 
 /* verdict */
@@ -219,10 +216,6 @@ body.is-locked {
   max-width: min(20rem, 70vw);
   margin: 1rem auto 0;
   border-radius: 8px;
-}
-
-.win__name {
-  margin: .75rem 0 .25rem;
 }
 
 /* leaderboard */

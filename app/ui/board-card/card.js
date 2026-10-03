@@ -2,7 +2,6 @@ import { CARD_STATUS } from "../../core/constants.js";
 
 export const CARD_CLASSES = {
   CARD: 'card',
-  CARD_OPEN: 'card--open',
   CONTENT: 'card__content',
   IMG: 'card__img',
   IMG_FRONT: 'card__img--front',
