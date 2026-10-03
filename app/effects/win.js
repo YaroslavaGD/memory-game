@@ -1,4 +1,4 @@
-import { saveResult } from "../core/leaderboard-storage.js";
+import { saveResult } from "../services/leaderboard-storage.js";
 import { isJustWon, selectWinner } from "../core/selectors.js";
 import { createWinContent } from "../ui/modal/win-content.js";
 

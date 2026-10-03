@@ -10,7 +10,7 @@ import { createStats } from "./ui/header/stats.js";
 import { createVerdict } from "./ui/header/verdict.js";
 import { createModal } from "./ui/modal/modal.js";
 import { createLeaderboardContent } from "./ui/modal/leaderboard-content.js";
-import { loadResults } from "./core/leaderboard-storage.js";
+import { loadResults } from "./services/leaderboard-storage.js";
 import { setupSounds } from "./effects/sounds.js";
 import { createVolume } from "./ui/header/volume.js";
 import { CARD_CLASSES } from "./ui/board-card/card.js";

@@ -1,5 +1,5 @@
 import { COMMON_TEXT } from "../../core/constants.js";
-import { formatDate } from "../../core/leaderboard-storage.js";
+import { formatDate } from "../fromatDate.js";
 import { createButton } from "../common/button.js";
 
 const LEADERBOARD_CLASSES = {
