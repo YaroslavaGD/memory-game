@@ -1,5 +1,5 @@
 import { CARD_STATUS } from "./constants.js";
-import { shuffle } from "./shuffle.js"
+import { shuffle } from "../utils/shuffle.js"
 
 let deckCounter = 0;
 export function buildCards(princes) {
