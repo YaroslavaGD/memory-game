@@ -14,6 +14,7 @@ const TEXT = {
 export function createStats() {
   const element = document.createElement('div');
   element.classList.add(STATS_CLASSES.STATS);
+  element.setAttribute('role', 'status');
 
   const moves = document.createElement('span');
   moves.classList.add(STATS_CLASSES.ITEM);

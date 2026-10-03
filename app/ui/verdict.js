@@ -9,12 +9,11 @@ const TEXT = {
 export function createVerdict() {
   const element = document.createElement('p');
   element.classList.add('verdict');
+  element.setAttribute('role', 'status');
 
   function update(state) {
     const winner = selectWinner(state);
     const eaten = selectLastEaten(state);
-
-    // const prince = princes.find((p) => p.id === state.lastMatchedId);
 
     if (winner) {
       element.textContent = `${TEXT.WON} ${winner.name}`;
