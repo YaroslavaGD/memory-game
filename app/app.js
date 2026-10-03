@@ -1,5 +1,5 @@
 import { createHeader } from "./ui/header/header.js";
-import { createBoard } from "./ui/board/board.js";
+import { createBoard } from "./ui/board-card/board.js";
 import { buildCards } from "./core/cards.js";
 import { PRINCES } from "./princes-data.js";
 import { ACTION_TYPES, GAME_STATUS } from "./core/constants.js";
@@ -15,14 +15,14 @@ import { createLeaderboardContent } from "./ui/modal/leaderboard-content.js";
 import { loadResults, saveResult } from "./core/leaderboard-storage.js";
 import { setupSounds } from "./core/sounds.js";
 import { createVolume } from "./ui/header/volume.js";
-import { CARD_CLASSES } from "./ui/board/card.js";
+import { CARD_CLASSES } from "./ui/board-card/card.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
   TITLE: 'main__title',
 }
 
-const TITLE_TEXT = 'Не тот';
+const TITLE_TEXT = 'Не тот и не этот';
 
 const store = createStore(reducer, createInitialState(buildCards(PRINCES)));
 setupMismatchTimer(store);
