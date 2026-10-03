@@ -1,4 +1,4 @@
-import { ACTION_TYPES, GAME_STATUS, MISMATCH_DELAY } from "./constants.js";
+import { ACTION_TYPES, GAME_STATUS, MISMATCH_DELAY } from "../core/constants.js";
 
 export function setupMismatchTimer(store, delay = MISMATCH_DELAY){
   let timerId = null;

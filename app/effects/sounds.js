@@ -1,4 +1,4 @@
-import { ACTION_TYPES, CARD_STATUS, GAME_STATUS } from "./constants.js";
+import { ACTION_TYPES, CARD_STATUS, GAME_STATUS } from "../core/constants.js";
 
 const VOLUME_KEY = 'princes-memory-game:volume';
 

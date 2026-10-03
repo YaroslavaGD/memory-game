@@ -1,4 +1,4 @@
-import { getVolume, setVolume } from "../../core/sounds.js";
+import { getVolume, setVolume } from "../../effects/sounds.js";
 
 const VOLUME_CLASSES = {
   WRAP: 'volume',
