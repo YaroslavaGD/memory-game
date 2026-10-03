@@ -1,6 +1,6 @@
 import { CARD_STATUS } from "../core/constants.js";
 
-const CARD_CLASSES = {
+export const CARD_CLASSES = {
   CARD: 'card',
   CARD_OPEN: 'card--open',
   CONTENT: 'card__content',

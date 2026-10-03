@@ -15,6 +15,7 @@ import { createLeaderboardContent } from "./ui/leaderboard-content.js";
 import { loadResults, saveResult } from "./core/leaderboard-storage.js";
 import { setupSounds } from "./core/sounds.js";
 import { createVolume } from "./ui/volume.js";
+import { CARD_CLASSES } from "./ui/card.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -26,6 +27,7 @@ setupSounds(store);
 
 function startNewGame() {
   store.dispatch({ type: ACTION_TYPES.NEW_GAME, cards: buildCards(PRINCES) });
+  document.querySelector(`.${CARD_CLASSES.CARD}`)?.focus();
 }
 
 function init() {
