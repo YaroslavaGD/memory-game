@@ -20,8 +20,8 @@ export function createBoard(onCardClick) {
 
       element.replaceChildren();
 
-      state.cards.forEach((c) => {
-        const card = createCard(c, onCardClick);
+      state.cards.forEach((c, index) => {
+        const card = createCard(c, onCardClick, index + 1);
         items.set(c.uid, card);
 
         element.appendChild(card.element);
