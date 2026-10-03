@@ -1,10 +1,11 @@
 import { ACTION_TYPES, CARD_STATUS, GAME_STATUS } from "./constants.js";
 
+const VOLUME_KEY = 'princes-memory-game:volume';
+
 const SOUNDS_PATH = 'assets/sounds';
 
 const SOUNDS_FILES = {
   CLICK: 'menu-button-click.wav',
-  // CHEW: 'chew.ogg',
   CHEW: 'chew.mp3',
   HMPH: 'hmph.wav',
   END_GAME: 'end-game.wav'
@@ -12,7 +13,18 @@ const SOUNDS_FILES = {
 
 const DEFAULT_VOLUME = 0.2;
 
-let volume = DEFAULT_VOLUME;
+function loadVolume() {
+  try {
+    const saved = Number(localStorage.getItem(VOLUME_KEY));
+    return localStorage.getItem(VOLUME_KEY) !== null && Number.isFinite(saved) 
+      ? Math.min(1, Math.max(0, saved)) 
+      : DEFAULT_VOLUME;
+  } catch {
+    return DEFAULT_VOLUME;
+  }
+}
+
+let volume = loadVolume();
 const audios = [];
 
 function createSound(file) {
@@ -30,6 +42,8 @@ function createSound(file) {
 const countRevealed = (state) => 
   state.cards.filter((card) => card.status !== CARD_STATUS.CLOSED).length;
 
+
+
 export function getVolume() {
   return volume;
 }
@@ -39,6 +53,10 @@ export function setVolume(value) {
   audios.forEach((audio) => {
     audio.volume = volume;
   });
+
+  try {
+    localStorage.setItem(VOLUME_KEY, String(volume));
+  } catch {}
 }
 export function setupSounds(store) {
   const play = {
