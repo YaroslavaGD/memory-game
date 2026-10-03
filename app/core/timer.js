@@ -1,6 +1,6 @@
-import { ACTION_TYPES, GAME_STATUS } from "./constants.js";
+import { ACTION_TYPES, GAME_STATUS, MISMATCH_DELAY } from "./constants.js";
 
-export function setupMismatchTimer(store, delay = 700){
+export function setupMismatchTimer(store, delay = MISMATCH_DELAY){
   let timerId = null;
 
   store.subscribe((state, prev, action) => {
