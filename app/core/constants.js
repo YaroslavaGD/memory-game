@@ -25,6 +25,6 @@ export const FATE = {
 
 export const COMMON_TEXT = {
   NEW_GAME: 'Новый ужин',
-  LEADERBOARD: 'Лучшие вечера',
+  LEADERBOARD: 'Летопись двора',
   CLOSE: 'Закрыть',
 };

@@ -41,12 +41,12 @@ export function createCard(card, onClick, position) {
 
     function update(card) {
       const isClosed = card.status === CARD_STATUS.CLOSED;
+      const label = isClosed
+        ? `Карточка ${position}, закрыта`
+        : `Карточка ${position}, ${card.name}`;
 
       element.dataset.state = card.status;
-      element.setAttribute(
-        'aria-label',
-        isClosed ? `Карточка ${position}, закрыта` : `Карточка ${position}, ${card.name}`
-      );
+      element.setAttribute('aria-label', label);
       element.setAttribute('aria-disabled', String(!isClosed));
       element.disabled = !isClosed;
 

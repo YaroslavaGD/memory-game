@@ -1,9 +1,9 @@
 import { selectLastEaten, selectWinner } from "../../core/selectors.js";
 
 const TEXT = {
-  PLAY: 'Принцесса выбирает жениха. Найдите пары!',
-  WON: 'Принцесса выбрала:',
-  EATEN: 'Принцесса съела:',
+  PLAY: 'Принцесса выбирает. Будьте осторожны.',
+  WON: 'Принцесса выбрала.',
+  EATEN: 'Не подошел.',
 }
 
 export function createVerdict() {
