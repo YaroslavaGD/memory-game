@@ -31,5 +31,11 @@
   --border-color: #372b35;
   /* --border: #2f2930; */
 
+  --paper: #ded8c8;
+  --paper-dark: #c7c0b0;
+  --ink: #302b30;
+  --red: #754149;
+  --body-bg-dark: #332e34;
+
   --anim-duration: 0.3s;
 }

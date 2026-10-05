@@ -65,4 +65,6 @@ npx serve
 
 Звуки: источники и лицензии перечислены в [assets/LICENSE.md](assets/LICENSE.md).
 
+Шрифты: Yeseva One, Cormorant Garamond (SIL OFL)
+
 Код: Yaroslava Hryzadubova, 2026, лицензия MIT, см. [LICENSE](LICENSE.md).

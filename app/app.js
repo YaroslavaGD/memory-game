@@ -19,8 +19,10 @@ import { setupLeaderboardSave, setupWinModal } from "./effects/win.js";
 const MAIN_CLASSES = {
   MAIN: 'main',
   TITLE: 'main__title',
+  EYEBROW: 'main__eyebrow',
+  HEADING: 'main__heading',
 }
-
+const EYEBROW_TEXT = 'Королевский отбор женихов';
 const TITLE_TEXT = 'Не тот и не этот';
 
 const store = createStore(reducer, createInitialState(buildCards(PRINCES)));
@@ -35,6 +37,7 @@ function startNewGame() {
 function init() {
   const app = document.createElement('div');
   app.id = 'app';
+  app.classList.add('app');
   document.body.appendChild(app);
 
   const modal = createModal();
@@ -45,24 +48,33 @@ function init() {
     );
   }
 
+  
+  const volume = createVolume();
+
   const header = createHeader({
     onNewGame: startNewGame,
     onLeaderboard: showLeaderboard,
+    volume: volume.element,
   });
-
-  const volume = createVolume();
-  header.element.append(volume.element);
 
   const title = document.createElement('h1');
   title.classList.add(MAIN_CLASSES.TITLE);
   title.textContent = TITLE_TEXT;
+
+  const eyebrow = document.createElement('p');
+  eyebrow.classList.add(MAIN_CLASSES.EYEBROW);
+  eyebrow.textContent = EYEBROW_TEXT;
+
+  const heading = document.createElement('div');
+  heading.classList.add(MAIN_CLASSES.HEADING);
+  heading.append(eyebrow, title);
 
   const stats = createStats();
   const board = createBoard((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));
   const verdict = createVerdict();
   const main = document.createElement('main');
   main.classList.add(MAIN_CLASSES.MAIN);
-  main.append(title, verdict.element, stats.element, board.element);
+  main.append(heading, verdict.element, stats.element, board.element);
 
   app.append(header.element, main);
   app.append(modal.element);
