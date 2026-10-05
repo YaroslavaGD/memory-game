@@ -281,20 +281,50 @@ h1, h2 { font-weight: 400; }
 .card[data-fate="eaten"]::after {
   font-family: var(--font-display);
   content: "ОТВЕРГНУТ";
+
   position: absolute;
   left: 50%;
   bottom: 12%;
-  transform: translateX(-50%) rotate(-8deg);
+
   padding: .1rem .5rem;
-  font-size: 1rem;
-  color: var(--body-bg);
-  background: var(--card-text);
+
+  font-family: var(--font-display);
+  font-size: .85rem;
+  letter-spacing: .08em;
+
+  color: var(--red);
+  background: transparent;
+  border: 1px solid var(--red);
   border-radius: 3px;
+  opacity: 1;
+
+  pointer-events: none;
+  transform: translateX(-50%) rotate(-8deg);
 }
 
 .card[data-fate="winner"] {
-  outline: 3px solid var(--gold);
-  outline-offset: 2px;
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  box-shadow:
+    0 0 20px rgb(184 164 119 / 20%);
+}
+
+@keyframes winnerReveal {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.card[data-fate="winner"] {
+  animation: winnerReveal .8s ease-out;
 }
 
 .card__content::before {
@@ -306,6 +336,7 @@ h1, h2 { font-weight: 400; }
   z-index: 1;
   height: 100%;
   background-color: var(--card-bg-cover);
+  pointer-events: none;
   transition: background-color ease-in var(--anim-duration);
 }
 
