@@ -1,6 +1,7 @@
 import { saveResult } from "../services/leaderboard-storage.js";
 import { isJustWon, selectWinner } from "../core/selectors.js";
 import { createWinContent } from "../ui/modal/win-content.js";
+import { ACTION_TYPES } from "../core/constants.js";
 
 
 export function setupLeaderboardSave(store) {
@@ -10,7 +11,14 @@ export function setupLeaderboardSave(store) {
 }
 
 export function setupWinModal(store, modal, onNewGame) {
-  store.subscribe((state, prev) => {
+  const WIN_MODAL_DELAY = 1400;
+  let timerId = null;
+  store.subscribe((state, prev, action) => {
+    if (action.type === ACTION_TYPES.NEW_GAME) { 
+      clearTimeout(timerId); 
+      timerId = null;
+    }
+
     if (!isJustWon(state, prev)) return;
   
     const winner = selectWinner(state);
@@ -21,7 +29,10 @@ export function setupWinModal(store, modal, onNewGame) {
       },
       onClose: modal.close,
     });
-  
-    modal.open(winContent);
+
+    timerId = setTimeout(() => { 
+      modal.open(winContent) 
+    }, WIN_MODAL_DELAY);
+    // modal.open(winContent);
   });
 }
