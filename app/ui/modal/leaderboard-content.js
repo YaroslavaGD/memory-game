@@ -12,7 +12,7 @@ const LEADERBOARD_CLASSES = {
 };
 
 const TEXT = {
-  EMPTY: 'Пока нет результатов',
+  EMPTY: 'Летопись пока пуста.',
   PLACE: 'Место',
   MOVES: 'Ходы',
   DATE: 'Дата',

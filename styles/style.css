@@ -566,25 +566,43 @@ h1, h2 { font-weight: 400; }
 
 /* leaderboard */
 .leaderboard__title {
+  margin: 0;
+
   font-family: var(--font-display);
-  margin: 0 0 .5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--ink);
+
   text-align: center;
 }
 
 .leaderboard__table {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   border-collapse: collapse;
+}
+
+.leaderboard__table th {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
 }
 
 .leaderboard__table th,
 .leaderboard__table td {
-  padding: .4rem .75rem;
-  border-bottom: 1px solid var(--border-color);
+  padding: .5rem .75rem;
+  border-bottom: 1px solid rgb(55 45 53 / 20%);
+}
+
+.leaderboard__table td {
+  font-size: 1.05rem;
 }
 
 .leaderboard__empty {
-  margin: 1.5rem 0;
+  margin: 2rem 0;
+
+  font-style: italic;
 }
 
 .leaderboard__actions {
