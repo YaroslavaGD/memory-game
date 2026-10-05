@@ -665,6 +665,26 @@ h1, h2 { font-weight: 400; }
   }
 }
 
+@media (min-width: 960px) {
+  .app { 
+    max-width: 64rem; 
+  }
+  .main { 
+    display: grid; 
+    grid-template-columns: 22rem 1fr; 
+    gap: 2rem; 
+    align-items: start; 
+  }
+  .main__heading { grid-column: 1 / -1; }
+  .princess-dialog { 
+    flex-direction: column; 
+    gap: 1rem; 
+  }
+  .princess__image {
+    width: min(12rem, 28vw);
+  }
+}
+
 @media (min-width: 521px) and (max-height: 900px) {
   .app { max-width: 34rem; }
 }
