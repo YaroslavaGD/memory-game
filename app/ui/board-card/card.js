@@ -27,11 +27,13 @@ export function createCard(card, onClick, position) {
       imgFront.classList.add(CARD_CLASSES.IMG, CARD_CLASSES.IMG_FRONT);
       imgFront.src = card.image;
       imgFront.alt = '';
+      imgFront.setAttribute('aria-hidden', 'true');
 
       const imgBack = document.createElement('img');
       imgBack.classList.add(CARD_CLASSES.IMG, CARD_CLASSES.IMG_BACK);
       imgBack.src = BACK_IMG_PATH;
       imgBack.alt = '';
+      imgBack.setAttribute('aria-hidden', 'true');
 
       content.append(imgFront, imgBack);
       return content;
@@ -46,6 +48,7 @@ export function createCard(card, onClick, position) {
         isClosed ? `Карточка ${position}, закрыта` : `Карточка ${position}, ${card.name}`
       );
       element.setAttribute('aria-disabled', String(!isClosed));
+      element.disabled = !isClosed;
 
       if (card.fate) {
         element.dataset.fate = card.fate;
