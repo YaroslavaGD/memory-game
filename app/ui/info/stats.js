@@ -2,13 +2,33 @@ import { PAIRS_COUNT } from "../../core/constants.js";
 
 const STATS_CLASSES = {
   STATS: 'stats',
-  ITEM: 'stats__item',
+  ITEM: 'stats__item', 
+  LABEL: 'stats__label',
+  VALUE: 'stats__value',
 };
 
 const TEXT = {
   MOVES: 'Ходы:',
   PAIRS: 'Пары:',
-  FROM: 'из'
+};
+
+function createStat(labelText) {
+  const item = document.createElement('div');
+  item.classList.add(STATS_CLASSES.ITEM);
+
+  const label = document.createElement('span');
+  label.classList.add(STATS_CLASSES.LABEL);
+  label.textContent = labelText;
+
+  const value = document.createElement('strong');
+  value.classList.add(STATS_CLASSES.VALUE);
+
+  item.append(label, value);
+
+  return {
+    element: item,
+    value,
+  };
 }
 
 export function createStats() {
@@ -16,17 +36,16 @@ export function createStats() {
   element.classList.add(STATS_CLASSES.STATS);
   element.setAttribute('role', 'status');
 
-  const moves = document.createElement('span');
-  moves.classList.add(STATS_CLASSES.ITEM);
+  const moves = createStat(TEXT.MOVES);
+  const pairs = createStat(TEXT.PAIRS);
 
-  const pairs = document.createElement('span');
-  pairs.classList.add(STATS_CLASSES.ITEM);
-
-  element.append(moves, pairs);
+  element.append(moves.element, pairs.element);
 
   function update(state) {
-    moves.textContent = `${TEXT.MOVES} ${state.moves}`;
-    pairs.textContent = `${TEXT.PAIRS} ${state.matchedPairs} ${TEXT.FROM} ${PAIRS_COUNT}`;
+    moves.value.textContent = state.moves;
+    pairs.value.textContent = `${state.matchedPairs} / ${PAIRS_COUNT}`;
+    // moves.textContent = `${TEXT.MOVES} ${state.moves}`;
+    // pairs.textContent = `${TEXT.PAIRS} ${state.matchedPairs} ${TEXT.FROM} ${PAIRS_COUNT}`;
   }
 
   return { element, update };
