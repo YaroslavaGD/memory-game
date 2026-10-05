@@ -2,40 +2,28 @@
   --font-display: 'Yeseva One', Georgia, serif;
   --font-body: 'Cormorant Garamond', Georgia, serif;
 
-  /* --body-bg: #554c53;
+  --body-bg: #554b53;
   --body-bg-dark: #332e34;
-  --border: #332d32;
-
+  
+  --paper: #ded8c8;
+  --paper-dark: #c7c0b0;
+  
   --ink: #302b30;
-
   --text-light: #ddd7c5;
 
-  --gold: #b7a274;
+  --gold: #b8a477;
   --red: #754149;
 
-  --border: #332d32;
-
-  --card-back: #6c666c;
-
-  --anim-duration: .4s; */
-
-  --body-bg: #554b53;
   --card-bg: #b8a8b5;
+  --card-back: #6c666c;
   --card-text: #dde3c5;
+
+  --border: #332d32;
+  --border-color: #372b35;
 
   --card-bg--hover2: #e3cfdf;
   --card-bg-cover: rgb(158 155 133 / 0.26);
   --card-bg-cover--hover: rgb(158, 155, 133, 0.05);
-  --gold: #b8a477;
 
-  --border-color: #372b35;
-  /* --border: #2f2930; */
-
-  --paper: #ded8c8;
-  --paper-dark: #c7c0b0;
-  --ink: #302b30;
-  --red: #754149;
-  --body-bg-dark: #332e34;
-
-  --anim-duration: 0.3s;
+  --anim-duration: 0.4s;
 }

@@ -15,6 +15,7 @@ import { setupSounds } from "./effects/sounds.js";
 import { createVolume } from "./ui/header/volume.js";
 import { CARD_CLASSES } from "./ui/board-card/card.js";
 import { setupLeaderboardSave, setupWinModal } from "./effects/win.js";
+import { createPrincess } from "./ui/info/princess.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -22,7 +23,7 @@ const MAIN_CLASSES = {
   EYEBROW: 'main__eyebrow',
   HEADING: 'main__heading',
 }
-const EYEBROW_TEXT = 'Королевский отбор женихов';
+const EYEBROW_TEXT = 'Королевский отбор';
 const TITLE_TEXT = 'Не тот и не этот';
 
 const store = createStore(reducer, createInitialState(buildCards(PRINCES)));
@@ -48,7 +49,6 @@ function init() {
     );
   }
 
-  
   const volume = createVolume();
 
   const header = createHeader({
@@ -69,12 +69,21 @@ function init() {
   heading.classList.add(MAIN_CLASSES.HEADING);
   heading.append(eyebrow, title);
 
+  const princess = createPrincess();
+
   const stats = createStats();
   const board = createBoard((uid) => store.dispatch({ type: ACTION_TYPES.CARD_CLICKED, uid }));
   const verdict = createVerdict();
   const main = document.createElement('main');
   main.classList.add(MAIN_CLASSES.MAIN);
-  main.append(heading, verdict.element, stats.element, board.element);
+
+  main.append(
+    heading, 
+    princess.element,
+    // verdict.element, 
+    stats.element, 
+    board.element
+  );
 
   app.append(header.element, main);
   app.append(modal.element);
