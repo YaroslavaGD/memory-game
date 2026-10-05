@@ -11,12 +11,18 @@ body {
   font-size: 1.15rem;
   font-weight: 500;
   font-variant-numeric: lining-nums;
-  background-color: var(--body-bg);
 
   background:
-    radial-gradient(circle at 50% 30%, transparent 35%, rgb(20 15 20 / .35) 100%),
+    radial-gradient(circle at 50% 14%, rgb(184 164 119 / .14), transparent 40%),
+    radial-gradient(circle at 50% 30%, transparent 30%, rgb(10 8 12 / .6) 100%),
     var(--body-bg);
   background-attachment: fixed;
+}
+
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 body.is-locked {
@@ -441,7 +447,7 @@ h1, h2 { font-weight: 400; }
   width: min(34rem, calc(100vw - 2rem));
   padding: 0;
 
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
   border-radius: 2px;
 
   background-color: var(--paper);
@@ -642,6 +648,14 @@ h1, h2 { font-weight: 400; }
   width: 5rem;
   cursor: pointer;
   accent-color: var(--gold);
+}
+
+.main__eyebrow, .princess__eyebrow, .verdict__status, .stats__label, .volume {
+  color: var(--gold-text);
+}
+
+.win__kicker {
+  color: var(--gold-ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
