@@ -44,8 +44,6 @@ export function createStats() {
   function update(state) {
     moves.value.textContent = state.moves;
     pairs.value.textContent = `${state.matchedPairs} / ${PAIRS_COUNT}`;
-    // moves.textContent = `${TEXT.MOVES} ${state.moves}`;
-    // pairs.textContent = `${TEXT.PAIRS} ${state.matchedPairs} ${TEXT.FROM} ${PAIRS_COUNT}`;
   }
 
   return { element, update };

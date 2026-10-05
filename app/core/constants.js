@@ -1,5 +1,5 @@
 export const PAIRS_COUNT = 8;
-export const MISMATCH_DELAY = 700;
+export const MISMATCH_DELAY = 850;
 export const CARD_STATUS = {
   CLOSED: 'closed',
   OPEN: 'open',

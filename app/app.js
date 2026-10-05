@@ -22,6 +22,8 @@ const MAIN_CLASSES = {
   TITLE: 'main__title',
   EYEBROW: 'main__eyebrow',
   HEADING: 'main__heading',
+  PRINCESS_INFO: 'princess-info',
+  PRINCESS_DIALOG: 'princess-dialog',
 }
 const EYEBROW_TEXT = 'Королевский отбор';
 const TITLE_TEXT = 'Не тот и не этот';
@@ -77,12 +79,23 @@ function init() {
   const main = document.createElement('main');
   main.classList.add(MAIN_CLASSES.MAIN);
 
+  const princessDialog = document.createElement('div');
+  princessDialog.classList.add(MAIN_CLASSES.PRINCESS_DIALOG);
+
+  const princessInfo = document.createElement('div');
+  princessInfo.classList.add(MAIN_CLASSES.PRINCESS_INFO);
+  princessInfo.append(verdict.element, stats.element);
+  princessDialog.append(
+    princess.element,
+    princessInfo, 
+  );
   main.append(
     heading, 
-    princess.element,
-    verdict.element, 
-    stats.element, 
-    board.element
+    princessDialog,
+    // princess.element,
+    // verdict.element, 
+    // stats.element, 
+    board.element,
   );
 
   app.append(header.element, main);
