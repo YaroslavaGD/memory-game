@@ -744,6 +744,46 @@ h1, h2 { font-weight: 400; }
   color: var(--gold-ink);
 }
 
+/* footer */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .35rem 2rem;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(183 164 119 / .35);
+}
+
+.footer__link {
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.footer__link:hover,
+.footer__link:focus-visible {
+  color: var(--text-light);
+  border-color: var(--gold);
+}
+
+.footer__link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .footer { 
+    gap: .35rem 1.25rem; 
+    margin-top: 2rem; 
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { 
     animation-duration: .01ms !important; 

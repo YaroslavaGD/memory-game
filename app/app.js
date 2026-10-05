@@ -16,6 +16,7 @@ import { createVolume } from "./ui/header/volume.js";
 import { CARD_CLASSES } from "./ui/board-card/card.js";
 import { setupLeaderboardSave, setupWinModal } from "./effects/win.js";
 import { createPrincess } from "./ui/info/princess.js";
+import { createFooter } from "./ui/footer/footer.js";
 
 const MAIN_CLASSES = {
   MAIN: 'main',
@@ -89,6 +90,8 @@ function init() {
     princess.element,
     princessInfo, 
   );
+
+
   main.append(
     heading, 
     princessDialog,
@@ -98,7 +101,9 @@ function init() {
     board.element,
   );
 
-  app.append(header.element, main);
+  const footer = createFooter();
+
+  app.append(header.element, main, footer.element);
   app.append(modal.element);
 
   setupLeaderboardSave(store);
