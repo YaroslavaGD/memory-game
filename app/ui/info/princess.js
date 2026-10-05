@@ -24,11 +24,13 @@ export function createPrincess() {
   eyebrow.classList.add(PRINCESS_CLASSES.EYEBROW);
   eyebrow.textContent = TEXT.EYEBROW;
 
-  const quote = document.createElement('p');
-  quote.classList.add(PRINCESS_CLASSES.QUOTE);
-  quote.textContent = TEXT.PLAY;
+  // const quote = document.createElement('p');
+  // quote.classList.add(PRINCESS_CLASSES.QUOTE);
+  // quote.textContent = TEXT.PLAY;
 
-  element.append(image, eyebrow, quote);
+  element.append(image, eyebrow, 
+    // quote
+  );
 
   return { element };
 }

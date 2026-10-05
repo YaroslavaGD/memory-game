@@ -80,7 +80,7 @@ function init() {
   main.append(
     heading, 
     princess.element,
-    // verdict.element, 
+    verdict.element, 
     stats.element, 
     board.element
   );
