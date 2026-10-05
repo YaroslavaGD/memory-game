@@ -8,15 +8,21 @@ const WIN_CLASSES = {
   TEXT: 'win__text',
   ACTIONS: 'win__actions',
   BUTTON: 'modal__button',
+  KICKER: 'win__kicker',
 };
 
 const TEXT = {
-  WIN: 'Принцесса сделала выбор!',
-  MOVES: 'Ходов:',
+  WIN: 'Принцесса выбрала.',
+  MOVES: 'ходов',
+  KICKER: 'THE CHOSEN ONE'
 };
 export function createWinContent(prince, moves, { onNewGame, onClose }) {
   const wrap = document.createElement('div');
   wrap.classList.add(WIN_CLASSES.WRAP);
+
+  const kicker = document.createElement('p');
+  kicker.classList.add(WIN_CLASSES.KICKER);
+  kicker.textContent = TEXT.KICKER;
 
   const title = document.createElement('h2');
   title.classList.add(WIN_CLASSES.TITLE);
@@ -27,22 +33,27 @@ export function createWinContent(prince, moves, { onNewGame, onClose }) {
   image.src = prince.imageBig;
   image.alt = prince.name;
 
+  const name = document.createElement('p');
+  name.classList.add('win__name');
+  name.textContent = prince.name;
+
   const description = document.createElement('p');
   description.classList.add(WIN_CLASSES.TEXT);
   description.textContent = prince.description;
 
   const movesText = document.createElement('p');
   movesText.classList.add(WIN_CLASSES.TEXT);
-  movesText.textContent = `${TEXT.MOVES} ${moves}`;
+  movesText.textContent = `${moves} ${TEXT.MOVES}`;
 
   const actions = document.createElement('div');
   actions.classList.add(WIN_CLASSES.ACTIONS);
+
   actions.append(
     createButton(COMMON_TEXT.NEW_GAME, onNewGame, WIN_CLASSES.BUTTON),
     createButton(COMMON_TEXT.CLOSE, onClose, WIN_CLASSES.BUTTON),
   );
 
-  wrap.append(title, image, description, movesText, actions);
+  wrap.append(kicker, title, image, name, description, movesText, actions);
 
   return wrap;
 }
