@@ -1,13 +1,21 @@
+@import "fonts.css";
 @import "variables.css";
 
 
 body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 500;
   background-color: var(--body-bg);
 }
 
 body.is-locked {
   overflow: hidden;
 }
+
+button, input { font: inherit; color: inherit; }
+h1, h2 { font-weight: 400; }
 
 .header {
   display: flex;
@@ -23,12 +31,13 @@ body.is-locked {
   color: var(--card-text);
   background-color: var(--card-bg-cover);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 3px;
   cursor: pointer;
 }
 
 /* main */
 .main__title {
+  font-family: var(--font-display);
   margin: 0 0 .5rem;
   text-align: center;
   font-size: clamp(1.5rem, 4vw, 2.25rem);
@@ -43,6 +52,10 @@ body.is-locked {
   margin-bottom: 1rem;
   color: var(--card-text);
   font-size: 1.25rem;
+}
+
+.stats__value {
+  font-family: var(--font-display);
 }
 
 /* board */
@@ -64,7 +77,7 @@ body.is-locked {
   background-color: var(--body-bg);
   color: var(--card-text);
   border: none;
-  border-radius: 10px;
+  border-radius: 3px;
   overflow: hidden;
   cursor: pointer;
   padding: 0;
@@ -74,12 +87,19 @@ body.is-locked {
 
 }
 
-.card:focus-visible {
+/* .card:focus-visible {
   outline: 2px solid var(--card-bg);
   outline-offset: 2px;
+} */
+
+.card:active {
+  transform: translateY(1px);
 }
 
 @media (hover: hover) {
+  .card:hover {
+    transform: translateY(-2px);
+  }
   .card:hover {
     outline: 2px solid var(--card-bg);
     outline-offset: 2px;
@@ -93,7 +113,7 @@ body.is-locked {
   width: 100%;
   height: auto;
   transform-style: preserve-3d;
-  transition: transform .3s;
+  transition: transform .4s cubic-bezier(.2, .7, .2, 1);
 }
 
 .card[data-state="open"],
@@ -107,11 +127,13 @@ body.is-locked {
 }
 
 .card[data-fate="eaten"] .card__img--front {
-  filter: grayscale(1) brightness(.6);
+  filter: grayscale(.7) contrast(.9);
+  opacity: .72;
 }
 
 .card[data-fate="eaten"]::after {
-  content: "Съеден";
+  font-family: var(--font-display);
+  content: "ОТВЕРГНУТ";
   position: absolute;
   left: 50%;
   bottom: 12%;
@@ -120,11 +142,11 @@ body.is-locked {
   font-size: 1rem;
   color: var(--body-bg);
   background: var(--card-text);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .card[data-fate="winner"] {
-  outline: 3px solid gold;
+  outline: 3px solid var(--gold);
   outline-offset: 2px;
 }
 
@@ -138,6 +160,15 @@ body.is-locked {
   height: 100%;
   background-color: var(--card-bg-cover);
   transition: background-color ease-in var(--anim-duration);
+}
+
+.card__content::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgb(255 255 255 / .18);
+  pointer-events: none;
+  z-index: 3;
 }
 
 .card__content:hover:before {
@@ -175,6 +206,10 @@ body.is-locked {
   color: var(--card-text);
 }
 
+.verdict__name {
+  font-family: var(--font-display);
+}
+
 /* modal */
 .modal {
   padding: 0;
@@ -199,11 +234,18 @@ body.is-locked {
   color: var(--card-text);
   background-color: var(--card-bg-cover);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 3px;
   cursor: pointer;
 }
 
 /* win */
+.win__title {
+  font-family: var(--font-display);
+  margin: 0 0 .5rem;
+  text-align: center;
+}
+
+
 .win__actions {
   display: flex;
   justify-content: center;
@@ -219,6 +261,12 @@ body.is-locked {
 }
 
 /* leaderboard */
+.leaderboard__title {
+  font-family: var(--font-display);
+  margin: 0 0 .5rem;
+  text-align: center;
+}
+
 .leaderboard__table {
   width: 100%;
   margin-top: 1rem;

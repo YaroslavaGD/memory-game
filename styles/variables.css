@@ -1,13 +1,35 @@
 :root {
+  --font-display: 'Yeseva One', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+
+  /* --body-bg: #554c53;
+  --body-bg-dark: #332e34;
+  --border: #332d32;
+
+  --ink: #302b30;
+
+  --text-light: #ddd7c5;
+
+  --gold: #b7a274;
+  --red: #754149;
+
+  --border: #332d32;
+
+  --card-back: #6c666c;
+
+  --anim-duration: .4s; */
+
   --body-bg: #554b53;
   --card-bg: #b8a8b5;
+  --card-text: #dde3c5;
+
   --card-bg--hover2: #e3cfdf;
   --card-bg-cover: rgb(158 155 133 / 0.26);
   --card-bg-cover--hover: rgb(158, 155, 133, 0.05);
-  /* --card-bg-hover: #7e6e8d; */
-  /* --card-bg-end: #9e9b85; */
-  --card-text: #dde3c5;
+  --gold: #b8a477;
+
   --border-color: #372b35;
+  /* --border: #2f2930; */
 
   --anim-duration: 0.3s;
 }
