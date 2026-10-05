@@ -46,7 +46,7 @@ npx serve
 
 ## Авторство и права
 
-- Иллюстрации: [Aleksandr Stejnbreher](https://www.deviantart.com/iiitrex). Все права принадлежат автору, использование отдельно от проекта без его согласия запрещено.
+- Иллюстрации: Aleksandr Stejnbreher. Все права принадлежат автору, использование отдельно от проекта без его согласия запрещено.
 - Звуки: см. [assets/LICENSE.md](assets/LICENSE.md)
 - Шрифты: Yeseva One, Cormorant Garamond (SIL OFL)
 - Код: Yaroslava Hryzadubova, 2026, MIT, см. [LICENSE](LICENSE.md)

@@ -4,8 +4,8 @@ const FOOTER_CLASSES = {
 };
 
 const LINKS = [
-  { text: 'Художник', href: 'https://github.com/YaroslavaGD' },
-  { text: 'Код', href: 'https://github.com/YaroslavaGD/memory-game' },
+  { text: 'Иллюстрации', href: 'https://github.com/YaroslavaGD' },
+  { text: 'Код', href: 'https://github.com/YaroslavaGD' },
   { text: 'RS School', href: 'https://rs.school/' },
 ];
 
