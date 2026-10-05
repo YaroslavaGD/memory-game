@@ -499,7 +499,8 @@ h1, h2 { font-weight: 400; }
 .modal {
   width: min(34rem, calc(100vw - 2rem));
   padding: 0;
-
+  max-height: calc(100dvh - 2rem); 
+  overflow-y: auto;
   border: 1px solid var(--border);
   border-radius: 2px;
 
