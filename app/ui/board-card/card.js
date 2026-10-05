@@ -48,7 +48,7 @@ export function createCard(card, onClick, position) {
       element.dataset.state = card.status;
       element.setAttribute('aria-label', label);
       element.setAttribute('aria-disabled', String(!isClosed));
-      element.disabled = !isClosed;
+      // element.disabled = !isClosed;
 
       if (card.fate) {
         element.dataset.fate = card.fate;

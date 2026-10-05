@@ -343,6 +343,11 @@ h1, h2 { font-weight: 400; }
   transform: translateY(1px);
 }
 
+.card:focus-visible { 
+  outline: 2px solid var(--gold); 
+  outline-offset: 2px; 
+}
+
 @media (hover: hover) {
   .card:not([data-fate="winner"]):hover {
     transform: translateY(-2px);
@@ -692,6 +697,12 @@ h1, h2 { font-weight: 400; }
 .leaderboard__table td {
   font-size: 1.05rem;
 }
+
+.leaderboard__table tbody tr:first-child td { 
+  color: var(--gold-ink); 
+  font-weight: 700 
+}
+
 
 .leaderboard__empty {
   margin: 2rem 0;

@@ -6,6 +6,7 @@ const WIN_CLASSES = {
   IMAGE: 'win__img',
   TITLE: 'win__title',
   TEXT: 'win__text',
+  MOVES: 'win__moves',
   ACTIONS: 'win__actions',
   BUTTON: 'modal__button',
   KICKER: 'win__kicker',
@@ -42,7 +43,7 @@ export function createWinContent(prince, moves, { onNewGame, onClose }) {
   description.textContent = prince.description;
 
   const movesText = document.createElement('p');
-  movesText.classList.add(WIN_CLASSES.TEXT);
+  movesText.classList.add(WIN_CLASSES.MOVES);
   movesText.textContent = `${moves} ${TEXT.MOVES}`;
 
   const actions = document.createElement('div');
