@@ -333,12 +333,18 @@ h1, h2 { font-weight: 400; }
   font-size: 2rem;
   perspective: 1000px;
 
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  touch-action: manipulation;
+
   transition: transform .3s ease, filter .3s ease, outline var(--anim-duration) ease-in;
 
 }
 
 .card:active {
   transform: translateY(1px);
+  filter: brightness(1.15);
 }
 
 .card:focus-visible { 
@@ -903,6 +909,19 @@ h1, h2 { font-weight: 400; }
     width: 6.5rem;
   }
 
+  .verdict {
+    min-height: 8.5rem;
+  }
+
+  .verdict__name {
+    font-size: 1.1rem;
+    margin-bottom: .5rem;
+  }
+
+  .verdict__quote {
+    line-height: 1;
+  }
+
   .stats {
     gap: 2rem;
     margin-bottom: 0;
@@ -923,6 +942,14 @@ h1, h2 { font-weight: 400; }
 
   .card[data-fate="eaten"]::after {
     font-size: .55rem;
+  }
+
+  .modal__body {
+    padding: 1rem;
+  }
+
+  .win__title {
+    font-size: 1.5rem;
   }
 
   .footer { 
