@@ -301,22 +301,22 @@ h1, h2 { font-weight: 400; }
   animation: disapprove-frame .5s ease-out .3s forwards;
 }
 
-.board[data-status="checking"] .card[data-state="open"] .card__img--front {
+/* .board[data-status="checking"] .card[data-state="open"] .card__img--front {
   animation: disapprove-dim .5s ease-out .3s forwards;
-}
+} */
 
-/* @keyframes disapprove-frame {
+@keyframes disapprove-frame {
   to {
     border-color: var(--red);
     box-shadow: inset 0 0 18px rgb(117 65 73 / .6);
   }
 }
 
-@keyframes disapprove-dim {
+/* @keyframes disapprove-dim {
   to { 
     filter: grayscale(.55) brightness(.9); 
   }
-} */
+}  */
 
 /* card */
 .card {
