@@ -21,6 +21,8 @@
   --border: #332d32;
   --card-bg-cover: rgb(158 155 133 / 0.26);
   --card-bg-cover--hover: rgb(158, 155, 133, 0.05);
+  --seal-bg: rgb(153 150 143 / 75%);
+  --seal-red: #754149;
 
   --anim-duration: 0.4s;
 }
