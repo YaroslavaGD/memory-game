@@ -25,7 +25,9 @@ const MAIN_CLASSES = {
   HEADING: 'main__heading',
   PRINCESS_INFO: 'princess-info',
   PRINCESS_DIALOG: 'princess-dialog',
-}
+  SIDEBAR: 'sidebar',
+};
+
 const EYEBROW_TEXT = 'Королевский отбор';
 const TITLE_TEXT = 'Не тот и не этот';
 
@@ -80,6 +82,9 @@ function init() {
   const main = document.createElement('main');
   main.classList.add(MAIN_CLASSES.MAIN);
 
+  const sidebar = document.createElement('div');
+  sidebar.classList.add(MAIN_CLASSES.SIDEBAR);
+
   const princessDialog = document.createElement('div');
   princessDialog.classList.add(MAIN_CLASSES.PRINCESS_DIALOG);
 
@@ -91,10 +96,12 @@ function init() {
     princessInfo, 
   );
 
+  sidebar.append(heading,princessDialog);
 
   main.append(
-    heading, 
-    princessDialog,
+    sidebar,
+    // heading, 
+    // princessDialog,
     // princess.element,
     // verdict.element, 
     // stats.element, 
