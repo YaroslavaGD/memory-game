@@ -298,12 +298,12 @@ h1, h2 { font-weight: 400; }
 }
 
 .board[data-status="checking"] .card[data-state="open"] .card__content::after {
-  animation: disapprove-frame .5s ease-out .4s forwards;
+  animation: disapprove-frame .5s ease-out .3s forwards;
 }
 
-.board[data-status="checking"] .card[data-state="open"] .card__img--front {
-  animation: disapprove-dim .5s ease-out .4s forwards;
-}
+/* .board[data-status="checking"] .card[data-state="open"] .card__img--front {
+  animation: disapprove-dim .5s ease-out .3s forwards;
+} */
 
 @keyframes disapprove-frame {
   to {
@@ -312,9 +312,11 @@ h1, h2 { font-weight: 400; }
   }
 }
 
-@keyframes disapprove-dim {
-  to { filter: grayscale(.55) brightness(.8); }
-}
+/* @keyframes disapprove-dim {
+  to { 
+    filter: grayscale(.55) brightness(.9); 
+  }
+}  */
 
 /* card */
 .card {
@@ -399,9 +401,10 @@ h1, h2 { font-weight: 400; }
   font-size: .85rem;
   letter-spacing: .08em;
 
-  color: var(--red);
-  background: transparent;
-  border: 1px solid var(--red);
+  color: var(--seal-red);
+  background: var(--seal-bg);
+  filter: contrast(1.4);
+  border: 1px solid var(--seal-red);
   border-radius: 3px;
   opacity: 1;
 
@@ -475,6 +478,7 @@ h1, h2 { font-weight: 400; }
 
 .card__img--front {
   background-color: var(--card-bg);
+  filter: contrast(1.5);
   transform: rotateY(180deg);
   transition: filter .6s ease .45s, opacity .6s ease .45s;
 }
