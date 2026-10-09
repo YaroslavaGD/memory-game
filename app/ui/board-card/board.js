@@ -13,6 +13,8 @@ export function createBoard(onCardClick) {
   
   function update(state) {
     element.dataset.status = state.gameStatus;
+    element.style.setProperty('--rows', Math.ceil(state.cards.length / 4));
+
     const isNeedNew = items.size !== state.cards.length || 
                       state.cards.some((card) => !items.has(card.uid));
 
