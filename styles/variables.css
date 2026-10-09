@@ -1,0 +1,28 @@
+:root {
+  --font-display: 'Yeseva One', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+
+  --body-bg: #3b343b;
+
+  --paper: #ded8c8;
+  --paper-dark: #c7c0b0;
+  
+  --ink: #302b30;
+  --text-light: #ddd7c5;
+
+  --gold: #b8a477;
+  --red: #754149;
+  --gold-text: #d4c28c;
+  --gold-ink: #6b5b32;
+
+  --card-bg: #b8a8b5;
+  --card-text: #dde3c5;
+
+  --border: #332d32;
+  --card-bg-cover: rgb(158 155 133 / 0.26);
+  --card-bg-cover--hover: rgb(158, 155, 133, 0.05);
+  --seal-bg: rgb(153 150 143 / 75%);
+  --seal-red: #754149;
+
+  --anim-duration: 0.4s;
+}
